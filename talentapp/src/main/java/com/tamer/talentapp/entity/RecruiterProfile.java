@@ -4,7 +4,7 @@ package com.tamer.talentapp.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "RECRUITER_PROFILE")
+@Table(name = "recruiter_profile")
 public class RecruiterProfile {
 
     @Id
@@ -15,13 +15,16 @@ public class RecruiterProfile {
     @MapsId
     private Users userId;
 
-
     private String firstName;
     private String lastName;
     private String city;
+
     private String state;
+
     private String country;
+
     private String company;
+
     @Column(nullable = true, length = 64)
     private String profilePhoto;
 
@@ -38,6 +41,10 @@ public class RecruiterProfile {
         this.country = country;
         this.company = company;
         this.profilePhoto = profilePhoto;
+    }
+
+    public RecruiterProfile(Users users) {
+        this.userId = users;
     }
 
     public int getUserAccountId() {

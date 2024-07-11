@@ -10,7 +10,9 @@ import java.util.Date;
 @Entity
 @Table(name = "users")
 public class Users {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
     @Column(unique = true)
@@ -18,6 +20,7 @@ public class Users {
 
     @NotEmpty
     private String password;
+
     private boolean isActive;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
@@ -86,7 +89,6 @@ public class Users {
     public void setUserTypeId(UsersType userTypeId) {
         this.userTypeId = userTypeId;
     }
-
 
     @Override
     public String toString() {
