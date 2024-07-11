@@ -283,6 +283,7 @@ label.large-label {
 /*          login           */
 .hidden-overflow {
   overflow: hidden;
+    background-color: #002244;
 }
 .coffee_mug_background {
   height: 100vh;
@@ -330,6 +331,7 @@ label.large-label {
 
 .heading_font {
   font-family: 'Montserrat';
+  color: white;
 }
 .font_sub_heading_color {
   color: #002244;
