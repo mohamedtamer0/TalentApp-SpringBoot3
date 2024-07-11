@@ -19,6 +19,7 @@ public class Users {
     @NotEmpty
     private String password;
     private boolean isActive;
+
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date registrationDate;
 

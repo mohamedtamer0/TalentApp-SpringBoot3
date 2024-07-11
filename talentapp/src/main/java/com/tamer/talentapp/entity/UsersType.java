@@ -13,7 +13,7 @@ public class UsersType {
     @Id
     private int userTypeId;
 
-    private String userTypename;
+    private String userTypeName;
 
     @ManyToMany(targetEntity = Users.class, mappedBy = "userTypeId", cascade = CascadeType.ALL)
     private List<User> users;
@@ -24,7 +24,7 @@ public class UsersType {
 
     public UsersType(int userTypeId, String userTypename, List<User> users) {
         this.userTypeId = userTypeId;
-        this.userTypename = userTypename;
+        this.userTypeName = userTypename;
         this.users = users;
     }
 
@@ -36,12 +36,12 @@ public class UsersType {
         this.userTypeId = userTypeId;
     }
 
-    public String getUserTypename() {
-        return userTypename;
+    public String getUserTypeName() {
+        return userTypeName;
     }
 
-    public void setUserTypename(String userTypename) {
-        this.userTypename = userTypename;
+    public void setUserTypeName(String userTypeName) {
+        this.userTypeName = userTypeName;
     }
 
     public List<User> getUsers() {
@@ -56,7 +56,7 @@ public class UsersType {
     public String toString() {
         return "UsersType{" +
                 "userTypeId=" + userTypeId +
-                ", userTypename='" + userTypename + '\'' +
+                ", userTypename='" + userTypeName + '\'' +
                 '}';
     }
 }
