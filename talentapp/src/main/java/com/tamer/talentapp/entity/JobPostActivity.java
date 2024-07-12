@@ -31,7 +31,7 @@ public class JobPostActivity {
     @Transient
     private Boolean isSaved;
 
-    @Length(max = 10000)
+    @Length(max = 4000)
     private String descriptionOfJob;
 
     private String jobType;
