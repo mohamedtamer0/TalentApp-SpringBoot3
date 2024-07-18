@@ -50,6 +50,7 @@ public class RecruiterProfileController {
 
         return "recruiter_profile";
     }
+
     @PostMapping("/addNew")
     public String addNew(RecruiterProfile recruiterProfile, @RequestParam("image") MultipartFile multipartFile, Model model) {
 

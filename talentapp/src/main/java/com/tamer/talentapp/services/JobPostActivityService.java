@@ -47,8 +47,8 @@ public class JobPostActivityService {
         return jobPostActivityRepository.findAll();
     }
 
-    public List<JobPostActivity> search(String job, String location, List<String>  type, List<String> remote, LocalDate searchDate) {
-        return Objects.isNull(searchDate) ? jobPostActivityRepository.searchWithoutDate(job,location) :
+    public List<JobPostActivity> search(String job, String location, List<String> type, List<String> remote, LocalDate searchDate) {
+        return Objects.isNull(searchDate) ? jobPostActivityRepository.searchWithoutDate(job, location) :
                 jobPostActivityRepository.search(job, location, remote, type, searchDate);
     }
 }

@@ -27,17 +27,13 @@ public interface JobPostActivityRepository extends JpaRepository<JobPostActivity
             nativeQuery = true)
     List<IRecruiterJobs> getRecruiterJobs(@Param("recruiter") int recruiter);
 
-    @Query(value = "SELECT * FROM job_post_activity j " +
-            "INNER JOIN job_location l on j.job_location_id = l.id " +
-            "WHERE (j.job_title LIKE '%' || :job || '%') " +
-            "AND (:location is null " +
-            "     OR l.city LIKE '%' || :location || '%' " +
-            "     OR l.country LIKE '%' || :location || '%' " +
-            "     OR l.state LIKE '%' || :location || '%') ",
-            nativeQuery = true)
+    @Query(value = "SELECT * FROM job_post_activity j INNER JOIN job_location l on j.job_location_id=l.id  WHERE j" +
+            ".job_title LIKE %:job%"
+            + " AND (l.city LIKE %:location%"
+            + " OR l.country LIKE %:location%"
+            + " OR l.state LIKE %:location%) ", nativeQuery = true)
     List<JobPostActivity> searchWithoutDate(@Param("job") String job,
                                             @Param("location") String location);
-
 
     @Query(value = "SELECT * FROM job_post_activity j INNER JOIN job_location l on j.job_location_id=l.id  WHERE j" +
             ".job_title LIKE %:job%"
@@ -50,6 +46,6 @@ public interface JobPostActivityRepository extends JpaRepository<JobPostActivity
     List<JobPostActivity> search(@Param("job") String job,
                                  @Param("location") String location,
                                  @Param("remote") List<String> remote,
-                                 @Param("type") List<String>  type,
+                                 @Param("type") List<String> type,
                                  @Param("date") LocalDate searchDate);
 }
