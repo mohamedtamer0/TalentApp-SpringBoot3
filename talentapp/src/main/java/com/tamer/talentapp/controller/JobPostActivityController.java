@@ -232,7 +232,6 @@ public class JobPostActivityController {
         return "global-search";
     }
 
-
     @GetMapping("/dashboard/add")
     public String addJobs(Model model) {
         model.addAttribute("jobPostActivity", new JobPostActivity());
