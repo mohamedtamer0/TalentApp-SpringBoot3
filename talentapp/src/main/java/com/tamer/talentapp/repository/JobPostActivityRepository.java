@@ -2,6 +2,7 @@ package com.tamer.talentapp.repository;
 
 import com.tamer.talentapp.entity.IRecruiterJobs;
 import com.tamer.talentapp.entity.JobPostActivity;
+import org.hibernate.annotations.processing.SQL;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -51,5 +52,4 @@ public interface JobPostActivityRepository extends JpaRepository<JobPostActivity
                                  @Param("remote") List<String> remote,
                                  @Param("type") List<String> type,
                                  @Param("date") LocalDate searchDate);
-
 }
