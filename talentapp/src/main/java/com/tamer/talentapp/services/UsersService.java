@@ -21,7 +21,6 @@ import java.util.Date;
 import java.util.Optional;
 
 @Service
-@Transactional
 public class UsersService {
 
     private final UsersRepository usersRepository;
@@ -37,27 +36,21 @@ public class UsersService {
         this.passwordEncoder = passwordEncoder;
     }
 
-
     public Users addNew(Users users) {
         users.setActive(true);
         users.setRegistrationDate(new Date(System.currentTimeMillis()));
         users.setPassword(passwordEncoder.encode(users.getPassword()));
         Users savedUser = usersRepository.save(users);
-
         int userTypeId = users.getUserTypeId().getUserTypeId();
-        if (userTypeId == 21) {
-            RecruiterProfile recruiterProfile = new RecruiterProfile(savedUser);
-            recruiterProfileRepository.save(recruiterProfile);
-        } else {
-            JobSeekerProfile jobSeekerProfile = new JobSeekerProfile(savedUser);
-            jobSeekerProfileRepository.save(jobSeekerProfile);
+
+        if (userTypeId == 1) {
+            recruiterProfileRepository.save(new RecruiterProfile(savedUser));
+        }
+        else {
+            jobSeekerProfileRepository.save(new JobSeekerProfile(savedUser));
         }
 
         return savedUser;
-    }
-
-    public Optional<Users> getUserByEmail(String email) {
-        return usersRepository.findByEmail(email);
     }
 
     public Object getCurrentUserProfile() {
@@ -80,7 +73,6 @@ public class UsersService {
         return null;
     }
 
-
     public Users getCurrentUser() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -92,4 +84,14 @@ public class UsersService {
 
         return null;
     }
+
+    public Users findByEmail(String currentUsername) {
+        return usersRepository.findByEmail(currentUsername).orElseThrow(() -> new UsernameNotFoundException("User not " +
+                "found"));
+    }
+
+    public Optional<Users> getUserByEmail(String email) {
+        return usersRepository.findByEmail(email);
+    }
+
 }
