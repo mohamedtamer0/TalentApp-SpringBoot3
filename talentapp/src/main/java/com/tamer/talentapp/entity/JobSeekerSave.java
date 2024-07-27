@@ -1,10 +1,12 @@
 package com.tamer.talentapp.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.io.Serializable;
 
 @Entity
+@Data
 @Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = {"userId", "job"})
 })
@@ -31,29 +33,6 @@ public class JobSeekerSave implements Serializable {
         this.job = job;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public JobSeekerProfile getUserId() {
-        return userId;
-    }
-
-    public void setUserId(JobSeekerProfile userId) {
-        this.userId = userId;
-    }
-
-    public JobPostActivity getJob() {
-        return job;
-    }
-
-    public void setJob(JobPostActivity job) {
-        this.job = job;
-    }
 
     @Override
     public String toString() {

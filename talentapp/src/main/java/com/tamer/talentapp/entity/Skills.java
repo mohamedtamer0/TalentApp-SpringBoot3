@@ -1,9 +1,11 @@
 package com.tamer.talentapp.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 
 @Entity
+@Data
 @Table(name = "skills")
 public class Skills {
 
@@ -30,45 +32,6 @@ public class Skills {
         this.jobSeekerProfile = jobSeekerProfile;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getExperienceLevel() {
-        return experienceLevel;
-    }
-
-    public void setExperienceLevel(String experienceLevel) {
-        this.experienceLevel = experienceLevel;
-    }
-
-    public String getYearsOfExperience() {
-        return yearsOfExperience;
-    }
-
-    public void setYearsOfExperience(String yearsOfExperience) {
-        this.yearsOfExperience = yearsOfExperience;
-    }
-
-    public JobSeekerProfile getJobSeekerProfile() {
-        return jobSeekerProfile;
-    }
-
-    public void setJobSeekerProfile(JobSeekerProfile jobSeekerProfile) {
-        this.jobSeekerProfile = jobSeekerProfile;
-    }
 
     @Override
     public String toString() {

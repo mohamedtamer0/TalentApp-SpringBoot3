@@ -1,5 +1,8 @@
 package com.tamer.talentapp.entity;
 
+import lombok.Data;
+
+@Data
 public class RecruiterJobsDto {
 
     private Long totalCandidates;
@@ -16,43 +19,5 @@ public class RecruiterJobsDto {
         this.jobCompanyId = jobCompanyId;
     }
 
-    public Long getTotalCandidates() {
-        return totalCandidates;
-    }
 
-    public void setTotalCandidates(Long totalCandidates) {
-        this.totalCandidates = totalCandidates;
-    }
-
-    public Integer getJobPostId() {
-        return jobPostId;
-    }
-
-    public void setJobPostId(Integer jobPostId) {
-        this.jobPostId = jobPostId;
-    }
-
-    public String getJobTitle() {
-        return jobTitle;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
-    public JobLocation getJobLocationId() {
-        return jobLocationId;
-    }
-
-    public void setJobLocationId(JobLocation jobLocationId) {
-        this.jobLocationId = jobLocationId;
-    }
-
-    public JobCompany getJobCompanyId() {
-        return jobCompanyId;
-    }
-
-    public void setJobCompanyId(JobCompany jobCompanyId) {
-        this.jobCompanyId = jobCompanyId;
-    }
 }

@@ -3,11 +3,13 @@ package com.tamer.talentapp.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "users")
 public class Users {
 
@@ -42,29 +44,7 @@ public class Users {
         this.userTypeId = userTypeId;
     }
 
-    public int getUserId() {
-        return userId;
-    }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public boolean isActive() {
         return isActive;
@@ -74,21 +54,7 @@ public class Users {
         isActive = active;
     }
 
-    public Date getRegistrationDate() {
-        return registrationDate;
-    }
 
-    public void setRegistrationDate(Date registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-
-    public UsersType getUserTypeId() {
-        return userTypeId;
-    }
-
-    public void setUserTypeId(UsersType userTypeId) {
-        this.userTypeId = userTypeId;
-    }
 
     @Override
     public String toString() {

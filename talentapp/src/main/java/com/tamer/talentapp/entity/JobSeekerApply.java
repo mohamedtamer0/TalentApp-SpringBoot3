@@ -1,12 +1,14 @@
 package com.tamer.talentapp.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
+@Data
 @Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = {"userId", "job"})
 })
@@ -40,45 +42,7 @@ public class JobSeekerApply implements Serializable {
         this.coverLetter = coverLetter;
     }
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public JobSeekerProfile getUserId() {
-        return userId;
-    }
-
-    public void setUserId(JobSeekerProfile userId) {
-        this.userId = userId;
-    }
-
-    public JobPostActivity getJob() {
-        return job;
-    }
-
-    public void setJob(JobPostActivity job) {
-        this.job = job;
-    }
-
-    public Date getApplyDate() {
-        return applyDate;
-    }
-
-    public void setApplyDate(Date applyDate) {
-        this.applyDate = applyDate;
-    }
-
-    public String getCoverLetter() {
-        return coverLetter;
-    }
-
-    public void setCoverLetter(String coverLetter) {
-        this.coverLetter = coverLetter;
-    }
 
     @Override
     public String toString() {
